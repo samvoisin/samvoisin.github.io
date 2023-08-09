@@ -1,19 +1,19 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Sam Voisin",
+    "label": "Data Scientist",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
-    "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
-    },
+    "email": "samvoisin@protonmail.com",
+    //"phone": "(912) 123-4567",
+    "url": "https://https://samvoisin.github.io/",
+    "summary": "Driven and results-oriented Data Scientist with extensive experience in designing and implementing innovative data pipelines, models, and algorithms. Seeking a challenging role to leverage my expertise in statistical analysis, predictive modeling, and optimization, and contribute to data-driven decision making for organizational growth.",
+    // "location": {
+    //   "address": "2712 Broadway St",
+    //   "postalCode": "CA 94115",
+    //   "city": "San Francisco",
+    //   "countryCode": "US",
+    //   "region": "California"
+    // },
     "profiles": [
       {
         "network": "Twitter",
