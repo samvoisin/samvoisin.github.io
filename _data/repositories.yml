@@ -1,12 +1,8 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - samvoisin
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - samvoisin/gesture-control
+  - samvoisin/TDAforGesturePredictionsEMG
+  - samvoisin/bhc
+  - samvoisin/bayesian-hp
