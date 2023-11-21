@@ -14,7 +14,7 @@
         <figure>
 
   <picture>
-    
+
 
     <!-- Fallback to the original file -->
     <img src="/assets/img/compression_ex.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
@@ -39,7 +39,7 @@
         <figure>
 
   <picture>
-    
+
 
     <!-- Fallback to the original file -->
     <img src="/assets/img/tft_fig2.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
@@ -62,7 +62,7 @@
         <figure>
 
   <picture>
-    
+
 
     <!-- Fallback to the original file -->
     <img src="/assets/img/tft_fig3.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
