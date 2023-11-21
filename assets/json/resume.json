@@ -1,13 +1,13 @@
 {
   "basics": {
     "name": "Sam Voisin",
-    "label": "Data Scientist",
+    "label": "Senior Data Scientist",
     "image": "",
     "email": "samvoisin@protonmail.com",
     //"phone": "(912) 123-4567",
-    "url": "https://samvoisin.github.io/",
+    "url": "https://www.samvoisin.com/",
     "summary": "I am a driven and results-oriented data scientist with extensive experience in designing and implementing innovative data pipelines, models, and algorithms.",
-    "skills": "Predictive modeling - Bayesian and classical statistics - Deep learning - Natural language processing - Advanced Python skill - Pytorch, huggingface, spacy - Linux/Unix & Docker",
+    "skills": "Predictive modeling - Bayesian and classical statistics - Topological and geometric data analysis - Deep learning - Natural language processing - Advanced Python skill - Linux/Unix & Docker",
     // "location": {
     //   "address": "2712 Broadway St",
     //   "postalCode": "CA 94115",
@@ -17,9 +17,9 @@
     // },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "LinkedIn",
+        "username": "samvoisin",
+        "url": "www.linkedin.com/in/samvoisin"
       }
     ]
   },
@@ -28,8 +28,8 @@
       "name": "Infinia ML, Durham, NC",
       "position": "Data Scientist",
       "startDate": "2022-03-01",
-      "endDate": "PRESENT",
-      "summary": "In my current role, I develop flexible document processing pipelines for information extraction and classification. My current interest is integrating SOTA large language models to perform advanced document analysis tasks."
+      "endDate": "2023-10-01",
+      "summary": "Developed flexible document processing pipelines for information extraction and classification. Designed and implemented large language model (LLM) infrastructure."
     },
     {
       "name": "Geometric Data Analytics, Inc, Durham, NC",
