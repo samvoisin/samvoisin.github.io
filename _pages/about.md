@@ -17,7 +17,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Welcome to my website! My name is Sam Voisin. I am a data science, machine learning and software design professional. I have extensive experience in natural language processing (NLP), computer vision (CV), time series analysis and Bayesian methods.
+Welcome to my website! My name is Sam Voisin. I am a data science, machine learning and software design professional. I have extensive experience in natural language processing (NLP), computer vision (CV), time series analysis and Bayesian model techniques.
 
 🦾 I am passionate about intuitive, gesture-based control systems. I am currently developing [GestuReMote](https://github.com/samvoisin/gesture-control), a python library which provides an interface for controlling your desktop/laptop with physical gestures.
 
