@@ -3,6 +3,6 @@ github_users:
 
 github_repos:
   - samvoisin/gesture-control
+  - samvoisin/ai-dungeon-master
   - samvoisin/TDAforGesturePredictionsEMG
   - samvoisin/bhc
-  - samvoisin/bayesian-hp
