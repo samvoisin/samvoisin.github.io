@@ -3,8 +3,8 @@ layout: post
 title: Using Topology to Track Ocean Patterns
 date: 2022-09-27 11:12:00-0400
 description: Tracking oceanographic features with topological data analysis.
-tags: # formatting math
-categories: # sample-posts
+tags: tda, oceanography
+categories: publications
 related_posts: false
 thumbnail: assets/img/tft_fig3.png
 ---
