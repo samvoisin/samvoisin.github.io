@@ -9,11 +9,11 @@ related_posts: false
 thumbnail: assets/img/OLS_geometric_interpretation.png
 ---
 
-My [previous post](https://www.samvoisin.com/blog/2023/adj-r2/) was about the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) and pitfalls that come with using it to compare models. However, the models we were comparing in that post were linear regression models. There is an important reason for limiting the discussion to linear models: *R-squared is not suitable for assessing non-linear model quality*.
+My [previous post](https://www.samvoisin.com/blog/2023/adj-r2/) was about the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) and pitfalls that come with using it to compare models. However, the models we were comparing in that post were linear regression models. I limited the discussion to linear models for an important reason: *R-squared is not suitable for assessing non-linear model quality*.
 
-If you find that surprising, don't worry - you are not alone. Using R-squared to describe the quality of non-linear model may be the most common data science error that I see. This mistake is so common that [entire papers](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2892436/) have been dedicated to correcting this misconception. In this post, I am going to explain the reason why the interpretation of the R-squared statistic assumes a linear model and why it does not extend to non-linear models.
+If you find that surprising, don't worry - you are not alone. Using R-squared (often denoted $$R^2$$) to describe the quality of non-linear model may be the most common data science error that I see. This mistake is so common that [entire papers](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2892436/) have been dedicated to addressing it. In this post, I am going to explain the reason why the interpretation of the $$R^2$$ statistic assumes a linear model and why it does not extend to non-linear models.
 
-We will start with the definition of the R-squared statistic. The most general definition of R-squared is this:
+The most general definition of $$R^2$$ is this:
 
 $$
 SS_{res} = \sum_{i} (y_i - f_i)^2 = \sum_{i} e_i^2
@@ -47,13 +47,13 @@ $$
 See what happened there? We introduced the quantity $$f_i$$ by both adding and subtracting it inside the quadratic term. In this way we are able to incorporate the model's predictions into our variance calculation without breaking the equality. Let's continue by expanding the quadratic expression.
 
 $$
-\sum_i ((y_i - f_i) + (f_i - \bar{y}))^2 = \sum_i \left[ (y_i - f_i)^2 + (f_i - \bar{y})^2 + 2(y_i - f_i)(f_i - \bar{y}) \right]
+\sum_i ((y_i - f_i) + (f_i - \bar{y}))^2 = \sum_i (y_i - f_i)^2 + (f_i - \bar{y})^2 + 2(y_i - f_i)(f_i - \bar{y})
 $$
 
 Finally, we can distribute the summation operator.
 
 $$
-\sum_i \left[ (y_i - f_i)^2 + (f_i - \bar{y})^2 + 2(y_i - f_i)(f_i - \bar{y}) \right] =
+\sum_i (y_i - f_i)^2 + (f_i - \bar{y})^2 + 2(y_i - f_i)(f_i - \bar{y}) =
 \sum_i (y_i - f_i)^2 + \sum_i (f_i - \bar{y})^2 + \sum_i 2(y_i - f_i)(f_i - \bar{y})
 $$
 
