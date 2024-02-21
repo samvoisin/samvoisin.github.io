@@ -9,7 +9,7 @@ related_posts: false
 thumbnail: assets/img/OLS_geometric_interpretation.png
 ---
 
-My [previous post](https://www.samvoisin.com/blog/2023/adj-r2/) was about the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) and pitfalls that come with using it to compare models. However, the models we were comparing in that post were linear regression models. I limited the discussion to linear models for an important reason: *R-squared is not suitable for assessing non-linear model quality*.
+My [previous post](https://www.samvoisin.com/blog/2023/adj-r2/) was about the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) and pitfalls that come with using it to compare models. However, the models we were comparing in that post were *linear* regression models. I limited the discussion to linear models for an important reason: *R-squared is not suitable for assessing non-linear model quality*.
 
 If you find that surprising, don't worry - you are not alone. Using R-squared (often denoted $$R^2$$) to describe the quality of non-linear model may be the most common data science error that I see. This mistake is so common that [entire papers](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2892436/) have been dedicated to addressing it. In this post, I am going to explain the reason why the interpretation of the $$R^2$$ statistic assumes a linear model and why it does not extend to non-linear models.
 
@@ -27,7 +27,7 @@ $$
 R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
 $$
 
-That is, $$SS_{res}$$ is the sum of the squares of the residuals (i.e. errors $$e_i$$) between the model ($$f_i$$) and the observed samples ($$y_i$$). $$SS_{tot}$$ is the total variance observed in the samples about the mean ($$\bar{y}$$). Lastly, $$\frac{SS_{res}}{SS_{tot}}$$ is the ratio of residual variance to total variance observed in our dependent variable $$y$$. Therefore $$R^2$$ is the compliment of this ratio.
+$$SS_{res}$$ is the sum of the squares of the residuals (i.e. errors $$e_i$$) between the model ($$f_i$$) and the observed samples ($$y_i$$). This is also known as the sum of the squared errors. $$SS_{tot}$$ is the total variance observed in the samples about the mean ($$\bar{y}$$). Lastly, $$\frac{SS_{res}}{SS_{tot}}$$ is the ratio of residual variance to total variance observed in our dependent variable $$y$$. Therefore $$R^2$$ is the compliment of this ratio.
 
 In plain english this means that $$R^2$$ is the ratio of the variance our model describes to the total variance observed in $$y$$. But wait! There is a hidden assumption here. Lets define the variance described by our model as $$SS_{model}$$. Then we can restate $$R^2$$ like this:
 
