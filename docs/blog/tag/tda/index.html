@@ -10,9 +10,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Topological Signal Compression | Sam  Voisin</title>
+    <title>tda | Sam  Voisin</title>
     <meta name="author" content="Sam  Voisin">
-    <meta name="description" content="Using the topology of a time series for lossy compression.">
+    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 
@@ -38,7 +39,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-    <link rel="canonical" href="https://samvoisin.github.io/blog/2023/tsc/">
+    <link rel="canonical" href="https://samvoisin.github.io/blog/tag/tda/">
 
     <!-- Dark Mode -->
     
@@ -115,63 +116,35 @@
     <!-- Content -->
     <div class="container mt-5">
       
-        <!-- _layouts/post.html -->
-
-<div class="post">
+        <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Topological Signal Compression</h1>
-    <p class="post-meta">May 15, 2023</p>
-    <p class="post-tags">
-      <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
-        ·  
-        <a href="/blog/tag/tda">
-          <i class="fas fa-hashtag fa-sm"></i> tda</a>  
-          <a href="/blog/tag/signal-processing">
-          <i class="fas fa-hashtag fa-sm"></i> signal-processing</a>  
-          
-        ·  
-        <a href="/blog/category/publications">
-          <i class="fas fa-tag fa-sm"></i> publications</a>  
-          
-
-    </p>
+    <h1 class="post-title"> <i class="fas fa-hashtag fa-sm"></i> tda </h1>
+    <p class="post-description"> an archive of posts with this tag </p>
   </header>
 
-  <article class="post-content">
-    
-    <div id="markdown-content">
-      <p>In the evolving world of Internet of Things (IoT), cheaper and more powerful devices are becoming increasingly affordable and robust. Yet, alongside these advancements are evident energy and communication limitations that restricted the devices to transmit only highly-compressed data. This challenge becomes even more pronounced in situations where devices operate outside of traditional infrastructure, relying on satellite-based communication or variable power sources such as solar energy.</p>
-
-<p>Topological Signal Compression (“TSC”) is our answer to deploying sensor networks in these restrictive conditions. TSC is a topology-based, lossy compression method that can be tailored to individual power or bandwidth needs. It allows the transmission of compressed signals that exploit the full range of a variable communications budget, ensuring optimized data transmission under any constraints.</p>
-
-<p>The algorithm works by pairing critical points in the signal modality and considering the pairing to be a simplex (this a generalization of a triangle) in a larger simplical complex. In the case of a 1-D modality these simplices are just line segments. As critical pairs are formed they are said to have a lifespan (the time between a simplex being “born” and then merged). This lifespan is called the feature’s “persistence”. Those features with greater persistence are assumed to be the most important features and are retained by TSC. The low persistence features are removed from the signal - this is the lossy part of TSC.</p>
-
-<p>I encourage you to read the full <a href="https://ieeexplore.ieee.org/abstract/document/10115654" rel="external nofollow noopener" target="_blank">paper</a> for more detail. It is a great application of topological data analysis! The Arxiv preprint is available <a href="https://arxiv.org/pdf/2206.07486.pdf" rel="external nofollow noopener" target="_blank">here</a>.</p>
-
-<p>To validate our algorithm’s capabilities, we conducted entropy calculations and ran a classification experiment on increasingly simplified signals. We drew these from the robust Free-Spoken Digit Dataset and explored the stability of our technique’s performance against conventional benchmarks. Our tests have proven successful, demonstrating that our innovative algorithm not only handles variable, challenging conditions with grace but also greatly enhances the operational efficiency of IoT devices.</p>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/compression_ex.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<div class="caption">
-    An audio sample at various degrees of compression.
-</div>
-
+  <article>
+    <div class="table-responsive">
+      <table class="table table-sm table-borderless">
+        
+        <tr>
+          <th scope="row">May 15, 2023</th>
+          <td>
+              <a class="post-link" href="/blog/2023/tsc/">Topological Signal Compression</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row">Sep 27, 2022</th>
+          <td>
+              <a class="post-link" href="/blog/2022/tda-tracking/">Using Topology to Track Ocean Patterns</a>
+          </td>
+        </tr>
+      
+      </table>
     </div>
   </article>
+
 </div>
 
       
