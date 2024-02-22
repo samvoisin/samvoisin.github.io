@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Topological Signal Compression | Sam  Voisin</title>
+    <title>R-Squared and Non-Linear Models | Sam  Voisin</title>
     <meta name="author" content="Sam  Voisin">
-    <meta name="description" content="Using the topology of a time series for lossy compression.">
+    <meta name="description" content="The fundamental problem with using R-squared to assess non-linear model quality.">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 
@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-    <link rel="canonical" href="https://samvoisin.github.io/blog/2023/tsc/">
+    <link rel="canonical" href="https://samvoisin.github.io/blog/2024/r2-nonlinear/">
 
     <!-- Dark Mode -->
     
@@ -120,19 +120,21 @@
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Topological Signal Compression</h1>
-    <p class="post-meta">May 15, 2023</p>
+    <h1 class="post-title">R-Squared and Non-Linear Models</h1>
+    <p class="post-meta">January 15, 2024</p>
     <p class="post-tags">
-      <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+      <a href="/blog/2024"> <i class="fas fa-calendar fa-sm"></i> 2024 </a>
         ·  
-        <a href="/blog/tag/tda">
-          <i class="fas fa-hashtag fa-sm"></i> tda</a>  
-          <a href="/blog/tag/signal-processing">
-          <i class="fas fa-hashtag fa-sm"></i> signal-processing</a>  
+        <a href="/blog/tag/r-squared">
+          <i class="fas fa-hashtag fa-sm"></i> r-squared</a>  
+          <a href="/blog/tag/inference">
+          <i class="fas fa-hashtag fa-sm"></i> inference</a>  
+          <a href="/blog/tag/modeling">
+          <i class="fas fa-hashtag fa-sm"></i> modeling</a>  
           
         ·  
-        <a href="/blog/category/publications">
-          <i class="fas fa-tag fa-sm"></i> publications</a>  
+        <a href="/blog/category/methodology">
+          <i class="fas fa-tag fa-sm"></i> methodology</a>  
           
 
     </p>
@@ -141,15 +143,53 @@
   <article class="post-content">
     
     <div id="markdown-content">
-      <p>In the evolving world of Internet of Things (IoT), cheaper and more powerful devices are becoming increasingly affordable and robust. Yet, alongside these advancements are evident energy and communication limitations that restricted the devices to transmit only highly-compressed data. This challenge becomes even more pronounced in situations where devices operate outside of traditional infrastructure, relying on satellite-based communication or variable power sources such as solar energy.</p>
+      <p>My <a href="https://www.samvoisin.com/blog/2023/adj-r2/" rel="external nofollow noopener" target="_blank">previous post</a> was about the <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination" rel="external nofollow noopener" target="_blank">coefficient of determination</a> and pitfalls that come with using it to compare models. However, the models we were comparing in that post were <em>linear</em> regression models. I limited the discussion to linear models for an important reason: <em>R-squared is not suitable for assessing non-linear model quality</em>.</p>
 
-<p>Topological Signal Compression (“TSC”) is our answer to deploying sensor networks in these restrictive conditions. TSC is a topology-based, lossy compression method that can be tailored to individual power or bandwidth needs. It allows the transmission of compressed signals that exploit the full range of a variable communications budget, ensuring optimized data transmission under any constraints.</p>
+<p>If you find that surprising, don’t worry - you are not alone. Using R-squared (often denoted \(R^2\)) to describe the quality of non-linear model may be the most common data science error that I see. This mistake is so common that <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2892436/" rel="external nofollow noopener" target="_blank">entire papers</a> have been dedicated to addressing it. In this post, I am going to explain the reason why the interpretation of the \(R^2\) statistic assumes a linear model and why it does not extend to non-linear models.</p>
 
-<p>The algorithm works by pairing critical points in the signal modality and considering the pairing to be a simplex (this a generalization of a triangle) in a larger simplical complex. In the case of a 1-D modality these simplices are just line segments. As critical pairs are formed they are said to have a lifespan (the time between a simplex being “born” and then merged). This lifespan is called the feature’s “persistence”. Those features with greater persistence are assumed to be the most important features and are retained by TSC. The low persistence features are removed from the signal - this is the lossy part of TSC.</p>
+<p>The most general definition of \(R^2\) is this:</p>
 
-<p>I encourage you to read the full <a href="https://ieeexplore.ieee.org/abstract/document/10115654" rel="external nofollow noopener" target="_blank">paper</a> for more detail. It is a great application of topological data analysis! The Arxiv preprint is available <a href="https://arxiv.org/pdf/2206.07486.pdf" rel="external nofollow noopener" target="_blank">here</a>.</p>
+\[SS_{res} = \sum_{i} (y_i - f_i)^2 = \sum_{i} e_i^2\]
 
-<p>To validate our algorithm’s capabilities, we conducted entropy calculations and ran a classification experiment on increasingly simplified signals. We drew these from the robust Free-Spoken Digit Dataset and explored the stability of our technique’s performance against conventional benchmarks. Our tests have proven successful, demonstrating that our innovative algorithm not only handles variable, challenging conditions with grace but also greatly enhances the operational efficiency of IoT devices.</p>
+\[SS_{tot} = \sum_{i} (y_i - \bar{y})^2\]
+
+\[R^2 = 1 - \frac{SS_{res}}{SS_{tot}}\]
+
+<p>\(SS_{res}\) is the sum of the squares of the residuals (i.e. errors \(e_i\)) between the model (\(f_i\)) and the observed samples (\(y_i\)). This is also known as the sum of the squared errors. \(SS_{tot}\) is the total variance observed in the samples about the mean (\(\bar{y}\)). Lastly, \(\frac{SS_{res}}{SS_{tot}}\) is the ratio of residual variance to total variance observed in our dependent variable \(y\). Therefore \(R^2\) is the compliment of this ratio.</p>
+
+<p>In plain english this means that \(R^2\) is the ratio of the variance our model describes to the total variance observed in \(y\). However, there is a hidden assumption here. Lets define the variance described by our model as \(SS_{model}\). Then we can restate \(R^2\) like this:</p>
+
+\[\frac{SS_{model}}{SS_{tot}} = 1 - \frac{SS_{res}}{SS_{tot}} = \frac{SS_{tot}}{SS_{tot}} - \frac{SS_{res}}{SS_{tot}} \implies SS_{model} = SS_{tot} - SS_{res} \implies SS_{tot}
+= SS_{model} + SS_{res}\]
+
+<p>Thus the implication of the definition of \(R^2\) assumes that \(SS_{tot}\) is comprised of two quantities: the variance described by the model and the residual variance. The question we must now ask is whether this holds for any class of model.</p>
+
+<p>Let’s take a closer look at the total variance of the response variable \(SS_{tot}\). Recall that the total variance is composed of each observation’s squared distance from the mean of all observations \(\bar{y}\). It is here that we will introduce the predictions of a generic model \(f_i\). It is important to note that we make no assumptions about the model’s functional form.</p>
+
+\[SS_{tot} = \sum_i (y_i - \bar{y})^2 = \sum_i (y_i - f_i + f_i - \bar{y})^2 = \sum_i ((y_i - f_i) + (f_i - \bar{y}))^2\]
+
+<p>See what happened there? We introduced the quantity \(f_i\) by both adding and subtracting it inside the quadratic term. In this way we are able to incorporate the model’s predictions into our variance calculation without breaking the equality. Let’s continue by expanding the quadratic expression.</p>
+
+\[\sum_i ((y_i - f_i) + (f_i - \bar{y}))^2 = \sum_i (y_i - f_i)^2 + (f_i - \bar{y})^2 + 2(y_i - f_i)(f_i - \bar{y})\]
+
+<p>Finally, we can distribute the summation operator.</p>
+
+\[\sum_i (y_i - f_i)^2 + (f_i - \bar{y})^2 + 2(y_i - f_i)(f_i - \bar{y}) =
+\sum_i (y_i - f_i)^2 + \sum_i (f_i - \bar{y})^2 + \sum_i 2(y_i - f_i)(f_i - \bar{y})\]
+
+<p>We begin to see some quantities that we are already familiar with:</p>
+
+\[SS_{res} = \sum_i (y_i - f_i)^2\]
+
+\[SS_{model} = \sum_i (f_i - \bar{y})^2\]
+
+<p>But there is something else in this expression that we have not previously seen. The cross term of the quadratic \(\sum_i 2(y_i - f_i)(f_i - \bar{y})\) stands out as it did not appear when we first deconstructed \(SS_{tot}\). Why not? Let’s analyze the pieces that compose the cross term.</p>
+
+<p>Within the summation, we have a constant \(2\) that we can disregard for now. Then we have the \(i^{th}\) error \((y_i - f_i)\). The error term is multiplied with the \(i^{th}\) prediction shifted by the mean \((y_i - f_i)\). The cross term arises due to the interaction between residuals and predictions. It represents the covariance between the errors in the predictions and the (mean-centered) predictions themselves.</p>
+
+<p>To recap, the question we are trying to answer is: Why isn’t \(R^2\) suitable for assessing the fit of a non-linear model? We now have all the pieces we need to answer this question.</p>
+
+<p>We will start by examining the case when \(f\) is a least-squares linear model. It is important to remember how a model like this is fit to the dataset. I find it especially helpful to consider this optimization problem from the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares#Projection" rel="external nofollow noopener" target="_blank">perspective of projecting the dependent variable</a> \(y\) onto the space spanned by the columns of our independent variables \(X\). The linked wikipedia article provides some intuition:</p>
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -159,7 +199,7 @@
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/compression_ex.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/OLS_geometric_interpretation.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
   </picture>
 
 </figure>
@@ -167,8 +207,33 @@
     </div>
 </div>
 <div class="caption">
-    An audio sample at various degrees of compression.
+
 </div>
+
+<p>Notice how the error vector denoted by \(\hat{\epsilon}\) in the diagram is perpendicular (i.e. “orthogonal”) to the prediction vector denoted by \(X\hat{\beta}\). The error vector is the <em>rejection</em> of \(y\) projected onto the span of the columns of \(X\). From the geometric perspective, this means that the dot product of the prediction vectors and the error vectors will be zero. From the perspective of probability, this means that the predictions and their errors are independent. Formally, this means the following in the linear least squares setting:</p>
+
+\[\sum_i (y_i - f_i)(f_i - \bar{y}) = 0\]
+
+<p>And therefore</p>
+
+\[\sum_i (y_i - f_i)^2 + \sum_i (f_i - \bar{y})^2 + \sum_i 2(y_i - f_i)(f_i - \bar{y}) =
+SS_{res} + SS_{model} + Other =
+SS_{res} + SS_{model} =
+SS_{tot}\]
+
+<p>I once heard a mathematician describe linear/non-linear systems in the same manner that Tolstoy describes happy/unhappy families in <em>Anna Karenina</em>:</p>
+
+<blockquote>
+  <p>Linear systems are all alike; every non-linear system is non-linear in its own way.</p>
+</blockquote>
+
+<p>The point is that while linear models exhibit certain properties, such as the orthogonality between predictions and errors, which simplify the interpretation of \(R^2\), non-linear models do not necessarily adhere to these properties. In particular, the assumption of independence between predictions and errors, which is crucial for the derivation of \(R^2\) as a meaningful measure of model fit, may not hold for non-linear models.</p>
+
+<p>When fitting non-linear models, the relationship between predictions and errors can be more intricate. The errors may depend on the predictions themselves, leading to non-zero covariances between errors and predictions. Consequently, the decomposition of total variance (\(SS_{tot}\)) into variance explained by the model (\(SS_{model}\)) and residual variance (\(SS_{res}\)) becomes more complex.</p>
+
+<p>The presence of non-zero covariances between errors and predictions invalidates the straightforward interpretation of \(R^2\) as the proportion of variance explained by the model. In such cases, \(R^2\) can either overestimate or underestimate the goodness of fit, leading to misleading conclusions about the model’s performance.</p>
+
+<p>To summarize, while \(R^2\) is a valuable metric for assessing model fit in the context of linear regression, its interpretation becomes problematic when applied to non-linear models due to the potential violation of assumptions regarding the independence between predictions and errors. Therefore, caution should be exercised when using \(R^2\) to evaluate non-linear models, and alternative approaches, such as <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion" rel="external nofollow noopener" target="_blank">Akaike information criterion (AIC)</a> and/or <a href="https://en.wikipedia.org/wiki/Bayesian_information_criterion" rel="external nofollow noopener" target="_blank">Bayesian information criterion (BIC)</a>, may be more appropriate.</p>
 
     </div>
   </article>
