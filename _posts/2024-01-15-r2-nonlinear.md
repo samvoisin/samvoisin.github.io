@@ -29,7 +29,7 @@ $$
 
 $$SS_{res}$$ is the sum of the squares of the residuals (i.e. errors $$e_i$$) between the model ($$f_i$$) and the observed samples ($$y_i$$). This is also known as the sum of the squared errors. $$SS_{tot}$$ is the total variance observed in the samples about the mean ($$\bar{y}$$). Lastly, $$\frac{SS_{res}}{SS_{tot}}$$ is the ratio of residual variance to total variance observed in our dependent variable $$y$$. Therefore $$R^2$$ is the compliment of this ratio.
 
-In plain english this means that $$R^2$$ is the ratio of the variance our model describes to the total variance observed in $$y$$. But wait! There is a hidden assumption here. Lets define the variance described by our model as $$SS_{model}$$. Then we can restate $$R^2$$ like this:
+In plain english this means that $$R^2$$ is the ratio of the variance our model describes to the total variance observed in $$y$$. However, there is a hidden assumption here. Lets define the variance described by our model as $$SS_{model}$$. Then we can restate $$R^2$$ like this:
 
 $$
 \frac{SS_{model}}{SS_{tot}} = 1 - \frac{SS_{res}}{SS_{tot}} = \frac{SS_{tot}}{SS_{tot}} - \frac{SS_{res}}{SS_{tot}} \implies SS_{model} = SS_{tot} - SS_{res} \implies SS_{tot}
@@ -67,7 +67,7 @@ $$
 SS_{model} = \sum_i (f_i - \bar{y})^2
 $$
 
-But there is something else in this expression that we have not previously seen. The cross term of the quadratic $$\sum_i 2(y_i - f_i)(f_i - \bar{y})$$ stands out as it did not appear when we first deconstructed $$SS_{tot}$$. Why not? Let's take a look at the pieces that compose the cross term.
+But there is something else in this expression that we have not previously seen. The cross term of the quadratic $$\sum_i 2(y_i - f_i)(f_i - \bar{y})$$ stands out as it did not appear when we first deconstructed $$SS_{tot}$$. Why not? Let's analyze the pieces that compose the cross term.
 
 Within the summation, we have a constant $$2$$ that we can disregard for now. Then we have the $$i^{th}$$ error $$(y_i - f_i)$$. The error term is multiplied with the $$i^{th}$$ prediction shifted by the mean $$(y_i - f_i)$$. The cross term arises due to the interaction between residuals and predictions. It represents the covariance between the errors in the predictions and the (mean-centered) predictions themselves.
 
