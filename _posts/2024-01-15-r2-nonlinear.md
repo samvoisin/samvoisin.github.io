@@ -69,7 +69,7 @@ $$
 
 But there is something else in this expression that we have not previously seen. The cross term of the quadratic $$\sum_i 2(y_i - f_i)(f_i - \bar{y})$$ stands out as it did not appear when we first deconstructed $$SS_{tot}$$. Why not? Let's analyze the pieces that compose the cross term.
 
-Within the summation, we have a constant $$2$$ that we can disregard for now. Then we have the $$i^{th}$$ error $$(y_i - f_i)$$. The error term is multiplied with the $$i^{th}$$ prediction shifted by the mean $$(y_i - f_i)$$. The cross term arises due to the interaction between residuals and predictions. It represents the covariance between the errors in the predictions and the (mean-centered) predictions themselves.
+Within the summation, we have a constant $$2$$ that we can disregard for now. Then we have the $$i^{th}$$ error $$(y_i - f_i)$$. The error term is multiplied with the $$i^{th}$$ prediction shifted by the mean $$(f_i - \bar{y})$$. The cross term arises due to the interaction between residuals and predictions. It represents the covariance between the errors in the predictions and the (mean-centered) predictions themselves.
 
 To recap, the question we are trying to answer is: Why isn't $$R^2$$ suitable for assessing the fit of a non-linear model? We now have all the pieces we need to answer this question.
 
