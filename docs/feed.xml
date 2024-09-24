@@ -52,7 +52,7 @@
         <figure>
 
   <picture>
-    
+
 
     <!-- Fallback to the original file -->
     <img src="/assets/img/OLS_geometric_interpretation.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
