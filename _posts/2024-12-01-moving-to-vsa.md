@@ -17,7 +17,7 @@ Over the last several months I have been leading the software development effort
 
 Vertical slice architecture (VSA) is a software design approach that structures your application around features rather than technical layers. It emphasizes separating application functionality into distinct, end-to-end slices that handle a specific feature or use case independently. Each slice contains the requirements to handle the implementation of the related feature. This includes the presentation (e.g. API endpoints), the feature's infrastructure needs, the application code, and the business/domain logic.
 
-VSA stands in contrast to the more traditional layered architecture in which all API endpoints are defined together in the presentation layer, all infrastructure needs are defined together in the infrastructure layer and so on.
+VSA stands in contrast to the more traditional layered architecture in which all API endpoints are defined together in the presentation layer, all infrastructure needs are defined together in the infrastructure layer, and so on.
 
 Milan Jovanović provides an excellent and detailed description of a VSA [here](https://www.milanjovanovic.tech/blog/vertical-slice-architecture) if you want to read more.
 
@@ -55,7 +55,7 @@ Note that the domain layer has no outgoing dependencies as stated above. The pre
 
 ### Dealing with cross-feature code
 
-One drawback to VSA is the potential for code duplication. Some shared logic may need to be duplicated across slices. Managing shared code requires careful planning. I have seen a number of recommendations on handling this problem. One recommendation is to create a cross-cutting `shared` or `common` module. I don't really like this suggestion for two reasons: (1) it violates the main idea of the VSA and (2) it creates a submodule that ends up being an incoherent hodgepodge of code which is challenging to navigate and maintain.
+One drawback to VSA is the potential for code duplication. Some shared logic may need to be duplicated across slices. Managing shared code requires careful planning. I have seen a number of recommendations on handling this problem. One recommendation is to create a cross-cutting `shared` or `common` module. I don't really like this suggestion for two reasons: (1) it violates the core concept behind VSA and (2) it creates a submodule that ends up being an incoherent hodgepodge of code which is challenging to navigate and maintain.
 
 An alternative approach which I prefer is to use application services to coordinate needs between features. Let's use an example to illustrate this: Assume there is a feature for getting data about items in our inventory. There is an `items` table with information about the items and a `get_item_info` endpoint which allows us to read data on the items from the `items` table.
 
