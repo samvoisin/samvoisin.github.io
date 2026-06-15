@@ -1,15 +1,24 @@
-Website hosted from `gh-pages` branch in `docs` directory.
+# samvoisin.github.io
 
-To build site:
+Personal website ([www.samvoisin.com](https://www.samvoisin.com)), built with
+[Jekyll](https://jekyllrb.com/) on the [al-folio](https://github.com/alshedivat/al-folio)
+theme.
 
-1. Go to `master` branch.
-2. Merge any changes from other branches.
-3. Build `_site` directory with `bundle exec jekyll build`.
-4. Rename `_site` directory to `docs`.
-5. Go to `gh-pages` branch and merge master.
-6. Push new `docs` directory to `gh-pages` remote.
+## Publishing
 
-To review changes locally:
+Push to `master`. The `.github/workflows/deploy.yml` GitHub Actions workflow
+builds the site and deploys it to GitHub Pages automatically — no manual build
+step and no branch juggling.
 
-1. On the appropriate branch, run `bundle exec jekyll serve`.
-2. Navigate to `localhost:4000`.
+GitHub Pages is configured with **Source: GitHub Actions** (Settings → Pages).
+The custom domain (`www.samvoisin.com`) is set there and reproduced via the
+root `CNAME` file.
+
+## Local preview
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+Then open <http://localhost:4000>.
