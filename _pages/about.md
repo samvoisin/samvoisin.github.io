@@ -23,7 +23,7 @@ Welcome to my website! My name is Sam Voisin. I am a data science, machine learn
 
 🧙‍♂️ Another project I am working on is [AIDM](https://github.com/samvoisin/ai-dungeon-master), an LLM-powered chatbot that can act as a virtual "Game Master" for tabletop role-playing games. AIDM utilizes a combination of prompt engineering and software engineering features to ensure the LLM produces appropriate text.
 
-⛵️ I currently work as a Senior Data Scientist at Tradewind Data Science where I build value for clients by developing inferential and predictive models to guide strategy and policy decisions.
+⚡️ I am currently the Senior ML/AI Engineer at Optimum Energy where I design and implement the next generation of intelligent building infrastructure.
 
 I graduated from Duke University with a [Master's in Statistical Science](https://stat.duke.edu/) in 2020. While at Duke, I was exposed to a broad range of fields that are important to data science. In addition to probability and statistics courses provided by the Department of Statistical Science, I took courses in algorithms, advanced linear algebra, topology, high-dimensional data analysis and [topological data analysis](https://en.wikipedia.org/wiki/Topological_data_analysis) (TDA). My master's thesis *Graph Diffusion for Gesture Classification* focused on developing techniques to improve the accuracy of systems that classify physical gestures.
 
