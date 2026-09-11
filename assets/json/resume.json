@@ -29,35 +29,55 @@
       "position": "Senior Data Scientist",
       "startDate": "2023-10-01",
       "endDate": "2025-03-01",
-      "summary": "Implemented modern ML algorithms and DNN architectures for time series forecasting. Designed ML system architectures based on contemporary design patterns. Constructed ETL pipelines using Python, SQL, and PySpark on large-scale data clusters. Established company-wide DevOps program."
+      "highlights": [
+        "Implemented modern ML algorithms and DNN architectures for time series forecasting.",
+        "Designed ML system architectures based on contemporary design patterns.",
+        "Constructed ETL pipelines using Python, SQL, and PySpark on large-scale data clusters.",
+        "Established company-wide DevOps program."
+      ]
     },
     {
       "name": "Infinia ML, Durham, NC",
       "position": "Data Scientist",
       "startDate": "2022-03-01",
       "endDate": "2023-10-01",
-      "summary": "Developed flexible document processing pipelines for information extraction and classification. Designed and implemented large language model (LLM) infrastructure."
+      "highlights": [
+        "Developed flexible document processing pipelines for information extraction and classification.",
+        "Designed and implemented large language model (LLM) infrastructure."
+      ]
     },
     {
       "name": "Geometric Data Analytics, Inc, Durham, NC",
       "position": "Data Scientist",
       "startDate": "2020-06-01",
       "endDate": "2022-03-01",
-      "summary": "Research and development for clients including DARPA, NRL, and AFRL. Developed novel algorithms for oceanographic research, remote sensing, and pattern-of-life modeling. See publications."
+      "highlights": [
+        "Research and development for clients including DARPA, NRL, and AFRL.",
+        "Developed novel algorithms for oceanographic research, remote sensing, and pattern-of-life modeling; see publications."
+      ]
     },
     {
       "name": "Duke University, Durham, NC",
       "position": "Research Assistant",
       "startDate": "2019-04-01",
       "endDate": "2019-09-01",
-      "summary": "Crafted research goals, planned and executed experiments, designed data pipelines, and optimized MCMC samplers for Bayesian hierarchical regression models."
+      "highlights": [
+        "Crafted research goals.",
+        "Planned and executed experiments.",
+        "Designed data pipelines.",
+        "Optimized MCMC samplers for Bayesian hierarchical regression models."
+      ]
     },
     {
       "name": "Ally Financial Services, Charlotte, NC",
       "position": "Analyst",
       "startDate": "2015-01-01",
       "endDate": "2018-06-01",
-      "summary": "Analyzed financial market data and business metrics to mitigate business risk. Automated data gathering and processing. Acted as program lead and mentor for department internship program."
+      "highlights": [
+        "Analyzed financial market data and business metrics to mitigate business risk.",
+        "Automated data gathering and processing.",
+        "Acted as program lead and mentor for department internship program."
+      ]
     }
   ],
   "volunteer": [],
