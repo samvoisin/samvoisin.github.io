@@ -180,6 +180,7 @@
         "AWS",
         "EC2",
         "S3",
+        "GCS",
         "DynamoDB",
         "Lambda"
       ]
