@@ -25,6 +25,17 @@
   },
   "work": [
     {
+      "name": "Optimum Energy, Seattle, WA",
+      "position": "Senior Machine Learning Engineer",
+      "startDate": "2025-04-01",
+      "endDate": "",
+      "highlights": [
+        "Founded Optimum Energy's ML practice, defining its strategy, tooling, and production models.",
+        "Owned the architecture of the company's ML pipelines and directed deployment.",
+        "Designed a novel neural network for modeling full portfolio of chilled water stations in a single unified model."
+      ]
+    },
+    {
       "name": "Tradewind Data Science, Chicago, IL",
       "position": "Senior Data Scientist",
       "startDate": "2023-10-01",
